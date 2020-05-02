@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/main_back2" />
+
+                    <TextView
+                        android:id="@+id/calendar_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="25dp"
+                        android:fontFamily="@font/black"
+                        android:text="수고했어 내 자신!\n목표 리스트"
+                        android:textColor="#000000"
+                        android:textSize="33sp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/calendar_tv"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/round_border"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/medium"
+                        android:hint="목표를 달성한 나에게 주는 선물"
+                        android:padding="10dp"
+                        android:textSize="13sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <com.example.carrotandstick.calendar.ExpandableHeightGridView
+                android:id="@+id/calendar_gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:verticalSpacing="10dp"
+                android:isScrollContainer="false"
+                android:numColumns="2"
+                android:clipToPadding="false"
+                android:scrollbars="none" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

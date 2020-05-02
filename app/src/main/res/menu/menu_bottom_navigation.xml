@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/underbar_btn_main"
+        android:icon="@drawable/underbar_ic_main"
+        android:title="" />
+    <item
+        android:id="@+id/underbar_btn_calendar"
+        android:icon="@drawable/underbar_ic_calendar"
+        android:title="" />
+    <item
+        android:id="@+id/underbar_btn_prize"
+        android:icon="@drawable/underbar_ic_prize"
+        android:title="" />
+    <item
+        android:id="@+id/underbar_btn_mypage"
+        android:icon="@drawable/underbar_ic_mypage"
+        android:title="" />
+</menu>
