@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".src.main.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                 </RelativeLayout>
             </LinearLayout>
 
-            <com.example.carrotandstick.calendar.ExpandableHeightGridView
+            <com.example.carrotandstick.src.calendar.ExpandableHeightGridView
                 android:id="@+id/calendar_gridview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
