@@ -3,9 +3,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_red_dark"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".src.main.MainActivity">
+    tools:context=".src.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/prize_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/black"
+                        android:text="당근이 가득!\n당근 농장"
+                        android:textColor="#000000"
+                        android:textSize="33sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|bottom"
+                        android:src="@drawable/prize_background2" />
+                </LinearLayout>
+
+                <com.example.carrotandstick.src.calendar.ExpandableHeightGridView
+                    android:id="@+id/prize_gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clipToPadding="false"
+                    android:gravity="center"
+                    android:isScrollContainer="false"
+                    android:numColumns="2"
+                    android:layout_marginBottom="40dp"
+                    android:scrollbars="none"
+                    android:verticalSpacing="10dp" />
+
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
 </LinearLayout>

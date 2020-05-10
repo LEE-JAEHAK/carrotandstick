@@ -1,6 +1,4 @@
-package com.example.carrotandstick.src.login;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.carrotandstick.src.register;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,28 +11,28 @@ import android.widget.EditText;
 import com.example.carrotandstick.R;
 import com.example.carrotandstick.src.BaseActivity;
 import com.example.carrotandstick.src.MainActivity;
-import com.example.carrotandstick.src.login.interfaces.LoginActivityView;
-import com.example.carrotandstick.src.login.models.LoginResponse;
-import com.example.carrotandstick.src.login.models.RequestUser;
-import com.example.carrotandstick.src.mypage.MypageFragment;
+import com.example.carrotandstick.src.register.interfaces.RegisterActivityView;
+import com.example.carrotandstick.src.register.models.RegisterResponse;
+import com.example.carrotandstick.src.register.models.RequestUser;
 
 import static com.example.carrotandstick.src.ApplicationClass.X_ACCESS_TOKEN;
 import static com.example.carrotandstick.src.ApplicationClass.sSharedPreferences;
 
-public class LoginActivity extends BaseActivity implements LoginActivityView {
+public class RegisterActivity extends BaseActivity implements RegisterActivityView {
 
-    EditText mEtEmail, mEtPwd;
+    EditText mEtEmail, mEtPwd, mEtNickname;
     Button mBtnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-        mEtEmail = findViewById(R.id.login_et_email);
-        mEtPwd = findViewById(R.id.login_et_pwd);
-        mBtnLogin = findViewById(R.id.login_btn);
+        mEtEmail = findViewById(R.id.register_et_email);
+        mEtPwd = findViewById(R.id.register_et_pwd);
+        mEtNickname = findViewById(R.id.register_et_nickname);
+        mBtnLogin = findViewById(R.id.register_btn);
 
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,23 +43,20 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     }
 
     public void loginStart() {
-        LoginService loginService = new LoginService(this);
+        RegisterService registerService = new RegisterService(this);
         RequestUser requestUser = new RequestUser();
         requestUser.setId(mEtEmail.getText().toString());
         requestUser.setPw(mEtPwd.getText().toString());
-        loginService.postUser(requestUser);
+        requestUser.setNickName(mEtNickname.getText().toString());
+        registerService.postUser(requestUser);
     }
 
     @Override
-    public void validateUserSuccess(LoginResponse.Result result, boolean isSuccess, int code, String message) {
+    public void validateUserSuccess(boolean isSuccess, int code, String message) {
         if (isSuccess) {
             showCustomToast(message);
 
-            SharedPreferences.Editor editor = sSharedPreferences.edit();
-            editor.putString(X_ACCESS_TOKEN, result.getJwt());
-            editor.commit();
-
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);

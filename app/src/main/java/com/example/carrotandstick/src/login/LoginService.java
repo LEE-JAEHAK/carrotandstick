@@ -12,24 +12,28 @@ import retrofit2.Response;
 import static com.example.carrotandstick.src.ApplicationClass.getRetrofit;
 
 public class LoginService {
-    LoginActivityView loginActivityView;
+    final LoginActivityView loginActivityView;
 
     public LoginService(LoginActivityView loginActivityView) {
         this.loginActivityView = loginActivityView;
     }
 
-    void postUser(RequestUser requestUser){
-        LoginRetrofitInterface loginRetrofitInterface = getRetrofit().create(LoginRetrofitInterface.class);
+    void postUser(RequestUser requestUser) {
+        final LoginRetrofitInterface loginRetrofitInterface = getRetrofit().create(LoginRetrofitInterface.class);
         loginRetrofitInterface.postUser(requestUser).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                LoginResponse loginResponse = response.body();
-                loginActivityView.validateUserSuccess(loginResponse.getIsSuccess(),loginResponse.getCode(),loginResponse.getMessage());
+                final LoginResponse loginResponse = response.body();
+                if (loginResponse == null) {
+                    loginActivityView.validateUserFail(response.message());
+                    return;
+                }
+                loginActivityView.validateUserSuccess(loginResponse.getResult(), loginResponse.getIsSuccess(), loginResponse.getCode(), loginResponse.getMessage());
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                loginActivityView.validateUserFail();
+                loginActivityView.validateUserFail(t.getMessage());
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.example.carrotandstick.src.main;
+package com.example.carrotandstick.src;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import com.example.carrotandstick.R;
 import com.example.carrotandstick.src.BaseActivity;
 import com.example.carrotandstick.src.calendar.CalendarFragment;
+import com.example.carrotandstick.src.main.MainFragment;
 import com.example.carrotandstick.src.mypage.MypageFragment;
 import com.example.carrotandstick.src.prize.PrizeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

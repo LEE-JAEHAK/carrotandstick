@@ -5,59 +5,68 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".src.main.MainActivity">
+    tools:context=".src.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:src="@drawable/mypage_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp">
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="20dp"
-                        android:background="@drawable/main_back2" />
-
-                    <TextView
-                        android:id="@+id/mypage_tv"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
-                        android:fontFamily="@font/black"
-                        android:text="오늘도\n목표를 향해!"
-                        android:textColor="#000000"
-                        android:textSize="33sp" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/mypage_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/black"
+                            android:text="오늘도\n목표를 향해!"
+                            android:textColor="#000000"
+                            android:textSize="33sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|bottom"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/prize_background2" />
+                    </LinearLayout>
 
                     <ImageView
                         android:id="@+id/mypage_iv_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/mypage_tv"
-                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
                         android:src="@drawable/mypage_profile_default" />
 
                     <TextView
                         android:id="@+id/mypage_tv_nickname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/mypage_iv_profile"
-                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/bold"
                         android:text="도시 농부"
                         android:textColor="#000000"
@@ -67,7 +76,6 @@
                         android:id="@+id/mypage_view"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        android:layout_below="@+id/mypage_tv_nickname"
                         android:layout_marginStart="90dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="90dp"
@@ -77,77 +85,80 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/mypage_view"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/mypage_btn_register"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
                             android:fontFamily="@font/medium"
                             android:text="가입하기"
+                            android:layout_marginEnd="20dp"
                             android:textColor="#000000" />
 
                         <TextView
+                            android:id="@+id/mypage_btn_login"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
+                            android:background="@null"
                             android:fontFamily="@font/medium"
                             android:text="로그인"
                             android:textColor="#000000" />
                     </LinearLayout>
 
-                </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="@font/bold"
+                    android:text="진행 중인 목표"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/mypage_ic_carrot" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/medium"
+                    android:text="아직 진행 중인 목표가 없어요!"
+                    android:textColor="#000000"
+                    android:textSize="13sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="@font/bold"
+                    android:text="종료한 목표"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/mypage_ic_carrot" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/medium"
+                    android:text="아직 진행 중인 목표가 없어요!"
+                    android:textColor="#000000"
+                    android:textSize="13sp" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:fontFamily="@font/bold"
-                android:text="진행 중인 목표"
-                android:textColor="#000000"
-                android:textSize="17sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/mypage_ic_carrot" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/medium"
-                android:text="아직 진행 중인 목표가 없어요!"
-                android:textColor="#000000"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:fontFamily="@font/bold"
-                android:text="종료한 목표"
-                android:textColor="#000000"
-                android:textSize="17sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/mypage_ic_carrot" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/medium"
-                android:text="아직 진행 중인 목표가 없어요!"
-                android:textColor="#000000"
-                android:textSize="13sp" />
-        </LinearLayout>
+        </FrameLayout>
     </ScrollView>
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".src.main.MainActivity">
+    tools:context=".src.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,6 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/main_back2" />
 
@@ -54,17 +55,18 @@
                     android:padding="10dp"
                     android:textSize="13sp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/black"
+                    android:text="이 목표는 어때요?"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="3dp"
-                android:fontFamily="@font/black"
-                android:text="이 목표는 어때요?"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

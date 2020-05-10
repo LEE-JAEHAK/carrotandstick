@@ -8,6 +8,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface LoginRetrofitInterface {
-    @POST("/user")
+    @POST("/user/token")
     Call<LoginResponse> postUser(@Body RequestUser params);
 }

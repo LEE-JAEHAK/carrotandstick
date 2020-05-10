@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_rowWeight="1"
+    android:layout_columnWeight="1"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/prize_ic_1" />
+
+    <TextView
+        android:id="@+id/prize_tv_icname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:fontFamily="@font/black"
+        android:text="시들시들 당근 x1"
+        android:textColor="@android:color/black" />
+
+
+</LinearLayout>
