@@ -45,7 +45,7 @@
                         android:src="@drawable/prize_background2" />
                 </LinearLayout>
 
-                <com.example.carrotandstick.src.calendar.ExpandableHeightGridView
+                <com.example.carrotandstick.src.calendar.gridview.ExpandableHeightGridView
                     android:id="@+id/prize_gridview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

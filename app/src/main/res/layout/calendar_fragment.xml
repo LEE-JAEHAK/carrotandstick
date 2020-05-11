@@ -66,7 +66,7 @@
 
             </LinearLayout>
 
-            <com.example.carrotandstick.src.calendar.ExpandableHeightGridView
+            <com.example.carrotandstick.src.calendar.gridview.ExpandableHeightGridView
                 android:id="@+id/calendar_gridview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                 android:isScrollContainer="false"
                 android:numColumns="2"
                 android:scrollbars="none"
-                android:verticalSpacing="10dp" />
+                android:verticalSpacing="20dp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

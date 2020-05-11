@@ -10,8 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.carrotandstick.R;
-import com.example.carrotandstick.src.calendar.ExpandableHeightGridView;
-import com.example.carrotandstick.src.calendar.GridviewAdapter;
+import com.example.carrotandstick.src.calendar.gridview.ExpandableHeightGridView;
 
 import java.util.ArrayList;
 

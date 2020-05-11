@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="로그아웃 하시겠어요?"
+        android:text="등록 하시겠어요?"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:textSize="16sp"
@@ -31,24 +31,24 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/pbutton"
+            android:id="@+id/main_pbutton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="30"
             android:fontFamily="@font/bold"
             android:textColor="#ffffff"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/round_border_orange"
+            android:background="@drawable/round_border_orange_btn"
             android:text="네" />
 
         <Button
-            android:id="@+id/nbutton"
+            android:id="@+id/main_nbutton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="30"
             android:fontFamily="@font/bold"
             android:textColor="#ffffff"
-            android:background="@drawable/round_border_orange"
+            android:background="@drawable/round_border_orange_btn"
             android:text="아니요" />
     </LinearLayout>
 </LinearLayout>

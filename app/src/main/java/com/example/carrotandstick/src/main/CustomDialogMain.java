@@ -1,4 +1,4 @@
-package com.example.carrotandstick.src.mypage;
+package com.example.carrotandstick.src.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,14 +12,13 @@ import android.widget.Button;
 
 import com.example.carrotandstick.R;
 
-public class CustomDialog extends Dialog {
+public class CustomDialogMain extends Dialog {
 
     private Button mPositiveButton;
     private Button mNegativeButton;
 
     private View.OnClickListener mPositiveListener;
     private View.OnClickListener mNegativeListener;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +30,11 @@ public class CustomDialog extends Dialog {
         layoutParams.dimAmount = 0.8f;
         getWindow().setAttributes(layoutParams);
 
-        setContentView(R.layout.custom_dialog);
+        setContentView(R.layout.custom_dialog_main);
 
         //셋팅
-        mPositiveButton=(Button)findViewById(R.id.pbutton);
-        mNegativeButton=(Button)findViewById(R.id.nbutton);
+        mPositiveButton = findViewById(R.id.main_pbutton);
+        mNegativeButton = findViewById(R.id.main_nbutton);
 
         //클릭 리스너 셋팅 (클릭버튼이 동작하도록 만들어줌.)
         mPositiveButton.setOnClickListener(mPositiveListener);
@@ -43,7 +42,7 @@ public class CustomDialog extends Dialog {
     }
 
     //생성자 생성
-    public CustomDialog(@NonNull Context context, View.OnClickListener positiveListener, View.OnClickListener negativeListener) {
+    public CustomDialogMain(@NonNull Context context, View.OnClickListener positiveListener, View.OnClickListener negativeListener) {
         super(context);
         this.mPositiveListener = positiveListener;
         this.mNegativeListener = negativeListener;

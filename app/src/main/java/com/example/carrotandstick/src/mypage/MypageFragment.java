@@ -1,8 +1,6 @@
 package com.example.carrotandstick.src.mypage;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,7 +41,7 @@ public class MypageFragment extends Fragment implements MypageActivityView {
     TextView mTvNickname;
     TextView mTvLogin;
     TextView mTvRegister;
-    CustomDialog customDialog;
+    CustomDialogLogout customDialogLogout;
 
     @Nullable
     @Override
@@ -78,8 +75,8 @@ public class MypageFragment extends Fragment implements MypageActivityView {
             mTvRegister.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    customDialog = new CustomDialog(activity, positive, negative);
-                    customDialog.show();
+                    customDialogLogout = new CustomDialogLogout(activity, positive, negative);
+                    customDialogLogout.show();
                 }
 
                 private View.OnClickListener positive = new View.OnClickListener() {
@@ -92,13 +89,13 @@ public class MypageFragment extends Fragment implements MypageActivityView {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
-                        customDialog.dismiss();
+                        customDialogLogout.dismiss();
                     }
                 };
 
                 private View.OnClickListener negative = new View.OnClickListener() {
                     public void onClick(View v) {
-                        customDialog.dismiss();
+                        customDialogLogout.dismiss();
                     }
                 };
 
