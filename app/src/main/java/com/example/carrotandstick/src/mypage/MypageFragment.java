@@ -14,11 +14,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.carrotandstick.R;
+import com.example.carrotandstick.src.calendar.models.GoalOngoingResponse;
 import com.example.carrotandstick.src.login.LoginActivity;
 import com.example.carrotandstick.src.MainActivity;
 import com.example.carrotandstick.src.mypage.interfaces.MypageActivityView;
-import com.example.carrotandstick.src.mypage.models.MypageResponse;
+import com.example.carrotandstick.src.mypage.listview.ListviewAdapter;
+import com.example.carrotandstick.src.mypage.listview.ListviewAdapter2;
+import com.example.carrotandstick.src.mypage.models.FinishedgoalResponse;
+import com.example.carrotandstick.src.mypage.models.UserInfoResponse;
 import com.example.carrotandstick.src.register.RegisterActivity;
+import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
+
+import java.util.ArrayList;
 
 import static com.example.carrotandstick.src.ApplicationClass.X_ACCESS_TOKEN;
 import static com.example.carrotandstick.src.ApplicationClass.sSharedPreferences;
@@ -42,6 +49,13 @@ public class MypageFragment extends Fragment implements MypageActivityView {
     TextView mTvLogin;
     TextView mTvRegister;
     CustomDialogLogout customDialogLogout;
+    ExpandableHeightListView listView, listView2;
+    ListviewAdapter listviewAdapter;
+    ListviewAdapter2 listviewAdapter2;
+    ArrayList<GoalOngoingResponse.Result> arrayList = new ArrayList<>();
+    ArrayList<FinishedgoalResponse.Result> arrayList2 = new ArrayList<>();
+
+
 
     @Nullable
     @Override
@@ -101,14 +115,25 @@ public class MypageFragment extends Fragment implements MypageActivityView {
 
             });
             mTvLogin.setText("탈퇴하기");
-        }
 
+            mypageService.getGoalOngoing();
+            mypageService.getGoalFinished();
+
+            listView = view.findViewById(R.id.calendar_listview);
+            listView2 = view.findViewById(R.id.calendar_listview2);
+            listviewAdapter = new ListviewAdapter(arrayList, activity);
+            listviewAdapter2 = new ListviewAdapter2(arrayList2, activity);
+            listView.setExpanded(true);
+            listView2.setExpanded(true);
+            listView.setAdapter(listviewAdapter);
+            listView2.setAdapter(listviewAdapter2);
+        }
 
         return view;
     }
 
     @Override
-    public void validateUserSuccess(MypageResponse.Result result, boolean isSuccess, int code, String message) {
+    public void validateUserInfoSuccess(UserInfoResponse.Result result, boolean isSuccess, int code, String message) {
         if (isSuccess)
             mTvNickname.setText(result.getNickName());
         else
@@ -116,7 +141,39 @@ public class MypageFragment extends Fragment implements MypageActivityView {
     }
 
     @Override
-    public void validateUserFail(String msg) {
+    public void validateUserInfoFail(String msg) {
+        activity.showCustomToast(msg);
+    }
+
+    @Override
+    public void validateGoalOngoingSuccess(ArrayList<GoalOngoingResponse.Result> result, boolean isSuccess, int code, String message) {
+        if (isSuccess) {
+            arrayList.clear();
+            arrayList.addAll(result);
+            listviewAdapter.notifyDataSetChanged();
+        } else {
+            activity.showCustomToast(message);
+        }
+    }
+
+    @Override
+    public void validateGoalOngoingFail(String msg) {
+        activity.showCustomToast(msg);
+    }
+
+    @Override
+    public void validateGoalFinishedSuccess(ArrayList<FinishedgoalResponse.Result> result, boolean isSuccess, int code, String message) {
+        if (isSuccess) {
+            arrayList2.clear();
+            arrayList2.addAll(result);
+            listviewAdapter2.notifyDataSetChanged();
+        } else {
+            activity.showCustomToast(message);
+        }
+    }
+
+    @Override
+    public void validateGoalFinishedFail(String msg) {
         activity.showCustomToast(msg);
     }
 }

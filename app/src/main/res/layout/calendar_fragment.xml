@@ -37,18 +37,13 @@
                         android:textColor="#000000"
                         android:textSize="33sp" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center"
-                        android:src="@drawable/prize_background2" />
-
                 </LinearLayout>
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/calendar_background"
-                    android:layout_gravity="center|bottom"/>
+                    android:layout_gravity="center|bottom"
+                    android:src="@drawable/calendar_background" />
 
                 <EditText
                     android:layout_width="match_parent"

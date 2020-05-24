@@ -15,7 +15,8 @@ import com.example.carrotandstick.src.MainActivity;
 import com.example.carrotandstick.src.calendar.gridview.ExpandableHeightGridView;
 import com.example.carrotandstick.src.calendar.gridview.GridviewAdapter;
 import com.example.carrotandstick.src.calendar.interfaces.CalendarActivityView;
-import com.example.carrotandstick.src.calendar.models.CalendarResponse;
+import com.example.carrotandstick.src.calendar.models.GoalOngoingResponse;
+import com.example.carrotandstick.src.calendar2.models.GoalNoResponse;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,7 @@ public class CalendarFragment extends Fragment implements CalendarActivityView {
     View view;
     ExpandableHeightGridView gridView;
     GridviewAdapter gridviewAdapter;
-    ArrayList<CalendarResponse.Result> arrayList = new ArrayList<>();
+    ArrayList<GoalOngoingResponse.Result> arrayList = new ArrayList<>();
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -55,7 +56,7 @@ public class CalendarFragment extends Fragment implements CalendarActivityView {
     }
 
     @Override
-    public void validateUserSuccess(ArrayList<CalendarResponse.Result> result, boolean isSuccess, int code, String message) {
+    public void validateOngoingSuccess(ArrayList<GoalOngoingResponse.Result> result, boolean isSuccess, int code, String message) {
         if(isSuccess){
             arrayList.clear();
             arrayList.addAll(result);
@@ -67,7 +68,7 @@ public class CalendarFragment extends Fragment implements CalendarActivityView {
     }
 
     @Override
-    public void validateUserFail(String msg) {
+    public void validateOngoingFail(String msg) {
         activity.showCustomToast(msg);
     }
 }

@@ -1,12 +1,12 @@
 package com.example.carrotandstick.src.calendar.interfaces;
 
 
-import com.example.carrotandstick.src.calendar.models.CalendarResponse;
+import com.example.carrotandstick.src.calendar.models.GoalOngoingResponse;
 
 import java.util.ArrayList;
 
 public interface CalendarActivityView {
-    void validateUserSuccess(ArrayList<CalendarResponse.Result> result, boolean isSuccess, int code, String message);
+    void validateOngoingSuccess(ArrayList<GoalOngoingResponse.Result> result, boolean isSuccess, int code, String message);
 
-    void validateUserFail(String msg);
+    void validateOngoingFail(String msg);
 }

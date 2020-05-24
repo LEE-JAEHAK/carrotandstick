@@ -1,6 +1,5 @@
 package com.example.carrotandstick.src.login;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +15,6 @@ import com.example.carrotandstick.src.MainActivity;
 import com.example.carrotandstick.src.login.interfaces.LoginActivityView;
 import com.example.carrotandstick.src.login.models.LoginResponse;
 import com.example.carrotandstick.src.login.models.RequestUser;
-import com.example.carrotandstick.src.mypage.MypageFragment;
 
 import static com.example.carrotandstick.src.ApplicationClass.X_ACCESS_TOKEN;
 import static com.example.carrotandstick.src.ApplicationClass.sSharedPreferences;

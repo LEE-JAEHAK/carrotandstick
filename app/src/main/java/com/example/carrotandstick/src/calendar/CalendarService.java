@@ -2,7 +2,8 @@ package com.example.carrotandstick.src.calendar;
 
 import com.example.carrotandstick.src.calendar.interfaces.CalendarActivityView;
 import com.example.carrotandstick.src.calendar.interfaces.CalendarRetrofitInterface;
-import com.example.carrotandstick.src.calendar.models.CalendarResponse;
+import com.example.carrotandstick.src.calendar.models.GoalOngoingResponse;
+import com.example.carrotandstick.src.calendar2.models.GoalNoResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,22 +18,22 @@ public class CalendarService {
         this.calendarActivityView = calendarActivityView;
     }
 
-    void getGoalOngoing() {
+    public void getGoalOngoing() {
         final CalendarRetrofitInterface calendarRetrofitInterface = getRetrofit().create(CalendarRetrofitInterface.class);
-        calendarRetrofitInterface.getGoalOngoing().enqueue(new Callback<CalendarResponse>() {
+        calendarRetrofitInterface.getGoalOngoing().enqueue(new Callback<GoalOngoingResponse>() {
             @Override
-            public void onResponse(Call<CalendarResponse> call, Response<CalendarResponse> response) {
-                final CalendarResponse calendarResponse = response.body();
-                if (calendarResponse == null) {
-                    calendarActivityView.validateUserFail(response.message());
+            public void onResponse(Call<GoalOngoingResponse> call, Response<GoalOngoingResponse> response) {
+                final GoalOngoingResponse goalOngoingResponse = response.body();
+                if (goalOngoingResponse == null) {
+                    calendarActivityView.validateOngoingFail(response.message());
                     return;
                 }
-                calendarActivityView.validateUserSuccess(calendarResponse.getResult(), calendarResponse.getIsSuccess(), calendarResponse.getCode(), calendarResponse.getMessage());
+                calendarActivityView.validateOngoingSuccess(goalOngoingResponse.getResult(), goalOngoingResponse.getIsSuccess(), goalOngoingResponse.getCode(), goalOngoingResponse.getMessage());
             }
 
             @Override
-            public void onFailure(Call<CalendarResponse> call, Throwable t) {
-                calendarActivityView.validateUserFail(t.getMessage());
+            public void onFailure(Call<GoalOngoingResponse> call, Throwable t) {
+                calendarActivityView.validateOngoingFail(t.getMessage());
             }
         });
     }

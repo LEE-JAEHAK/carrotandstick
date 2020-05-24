@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/carrotandsticks"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".src.main.CustomDialogMain"></activity>
+        <activity android:name=".src.calendar2.CalendarActivity"></activity>
+        <activity android:name=".src.main.CustomDialogMain" />
         <activity android:name=".src.mypage.CustomDialogLogout" />
         <activity android:name=".src.login.LoginActivity" />
         <activity android:name=".src.register.RegisterActivity" />

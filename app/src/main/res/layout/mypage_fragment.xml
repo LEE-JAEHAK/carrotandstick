@@ -47,12 +47,6 @@
                             android:textColor="#000000"
                             android:textSize="33sp" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|bottom"
-                            android:layout_marginStart="10dp"
-                            android:src="@drawable/prize_background2" />
                     </LinearLayout>
 
                     <ImageView
@@ -132,6 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:visibility="invisible"
                             android:src="@drawable/mypage_ic_carrot" />
 
                         <TextView
@@ -139,12 +134,19 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/medium"
+                            android:visibility="invisible"
                             android:text="아직 진행 중인 목표가 없어요!"
                             android:textColor="#000000"
                             android:textSize="13sp" />
                     </LinearLayout>
 
-
+                    <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
+                        android:id="@+id/calendar_listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:divider="#ffffff"
+                        android:paddingVertical="10dp" />
                 </FrameLayout>
 
                 <TextView
@@ -156,20 +158,41 @@
                     android:textColor="#000000"
                     android:textSize="17sp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/mypage_ic_carrot" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/medium"
-                    android:text="아직 진행 중인 목표가 없어요!"
-                    android:textColor="#000000"
-                    android:textSize="13sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="invisible"
+                            android:src="@drawable/mypage_ic_carrot" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/medium"
+                            android:visibility="invisible"
+                            android:text="아직 진행 중인 목표가 없어요!"
+                            android:textColor="#000000"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
+                        android:id="@+id/calendar_listview2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:divider="#ffffff"
+                        android:paddingVertical="10dp" />
+                </FrameLayout>
             </LinearLayout>
         </FrameLayout>
     </ScrollView>

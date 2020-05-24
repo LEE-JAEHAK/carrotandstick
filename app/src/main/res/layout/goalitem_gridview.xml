@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendar_ll_btn"
     android:layout_width="180dp"
     android:layout_height="180dp"
     android:layout_rowWeight="1"
@@ -56,13 +57,27 @@
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:background="@drawable/round_border_orange" />
+            android:background="@drawable/round_border_orange" >
+        <ImageView
+            android:id="@+id/calendar_framelayout2_stamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:src="@drawable/calendar_stamp" />
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/calendar_framelayout3"
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:background="@drawable/round_border_orange" />
+            android:background="@drawable/round_border_orange" >
+        <ImageView
+            android:id="@+id/calendar_framelayout3_stamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:src="@drawable/calendar_stamp" />
+        </FrameLayout>
     </LinearLayout>
 </LinearLayout>

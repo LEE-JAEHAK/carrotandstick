@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class CalendarResponse {
+public class GoalOngoingResponse {
 
     @SerializedName("result")
     ArrayList<Result> result;
