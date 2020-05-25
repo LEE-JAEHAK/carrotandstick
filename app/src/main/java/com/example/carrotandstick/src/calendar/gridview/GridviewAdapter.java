@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -50,12 +51,26 @@ public class GridviewAdapter extends BaseAdapter {
 
         LinearLayout mBtnGoal = convertView.findViewById(R.id.calendar_ll_btn);
         TextView mTvDday = convertView.findViewById(R.id.calendar_tv_dday);
-        TextView mTvGoalname = convertView.findViewById(R.id.calendar_tv_goal);
+        final TextView mTvGoalname = convertView.findViewById(R.id.calendar_tv_goal);
+        ImageView mIvStamp1 = convertView.findViewById(R.id.calendar_framelayout1_stamp);
+        ImageView mIvStamp2 = convertView.findViewById(R.id.calendar_framelayout2_stamp);
+        ImageView mIvStamp3 = convertView.findViewById(R.id.calendar_framelayout3_stamp);
         String year = item.getCreatedAt().substring(0, 4);
         String month = item.getCreatedAt().substring(5, 7);
         String day = item.getCreatedAt().substring(8, 10);
+        int size = item.getCheckResult().size();
+        switch (size) {
+            case 3:
+                mIvStamp3.setVisibility(View.VISIBLE);
+            case 2:
+                mIvStamp2.setVisibility(View.VISIBLE);
+            case 1:
+                mIvStamp1.setVisibility(View.VISIBLE);
+            default:
+                break;
+        }
         System.out.println("year : " + year + "  month : " + month + "   day : " + day);
-        String dday = getDday(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+        final String dday = getDday(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
 
         mTvDday.setText(dday);
         mTvGoalname.setText(item.getGoal());
@@ -65,7 +80,9 @@ public class GridviewAdapter extends BaseAdapter {
             public void onClick(View v) {
                 int no = item.getNo();
                 Intent intent = new Intent(context, CalendarActivity.class);
-                intent.putExtra("no",no);   // calendar 로 no intent로 넘겨줌
+                intent.putExtra("goalName", item.getGoal());
+                intent.putExtra("goalDday", dday);
+                intent.putExtra("goalNo", no);   // calendar 로 no intent로 넘겨줌
                 context.startActivity(intent);
             }
         });

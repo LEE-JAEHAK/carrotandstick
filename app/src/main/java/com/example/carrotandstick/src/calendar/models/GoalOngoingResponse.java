@@ -1,5 +1,6 @@
 package com.example.carrotandstick.src.calendar.models;
 
+import com.example.carrotandstick.src.calendar2.models.GoalNoResponse;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class GoalOngoingResponse {
     @SerializedName("message")
     String message;
 
-    public class Result{
+    public class Result {
         @SerializedName("no")
         int no;
 
@@ -28,8 +29,21 @@ public class GoalOngoingResponse {
         @SerializedName("createdAt")
         String createdAt;
 
-        @SerializedName("isDeleted")
-        String isDeleted;
+        @SerializedName("checkResult")
+        ArrayList<checkResult> checkResult;
+
+        public class checkResult {
+            @SerializedName("createdAt")
+            String createdAt;
+
+            public String getCreatedAt() {
+                return createdAt;
+            }
+        }
+
+        public ArrayList<Result.checkResult> getCheckResult() {
+            return checkResult;
+        }
 
         public int getNo() {
             return no;
@@ -43,9 +57,6 @@ public class GoalOngoingResponse {
             return createdAt;
         }
 
-        public String getIsDeleted() {
-            return isDeleted;
-        }
     }
 
     public ArrayList<Result> getResult() {

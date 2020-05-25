@@ -6,9 +6,9 @@
     android:layout_rowWeight="1"
     android:layout_columnWeight="1"
     android:layout_gravity="center"
-    android:gravity="center"
     android:layout_weight="1"
     android:background="@drawable/round_border_bordered"
+    android:gravity="center"
     android:orientation="vertical">
 
     <TextView
@@ -49,7 +49,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:src="@drawable/calendar_stamp" />
+                android:src="@drawable/calendar_stamp"
+                android:visibility="invisible" />
         </FrameLayout>
 
         <FrameLayout
@@ -57,13 +58,15 @@
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:background="@drawable/round_border_orange" >
-        <ImageView
-            android:id="@+id/calendar_framelayout2_stamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:src="@drawable/calendar_stamp" />
+            android:background="@drawable/round_border_orange">
+
+            <ImageView
+                android:id="@+id/calendar_framelayout2_stamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:src="@drawable/calendar_stamp"
+                android:visibility="invisible" />
         </FrameLayout>
 
         <FrameLayout
@@ -71,13 +74,15 @@
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:background="@drawable/round_border_orange" >
-        <ImageView
-            android:id="@+id/calendar_framelayout3_stamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:src="@drawable/calendar_stamp" />
+            android:background="@drawable/round_border_orange">
+
+            <ImageView
+                android:id="@+id/calendar_framelayout3_stamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:src="@drawable/calendar_stamp"
+                android:visibility="invisible" />
         </FrameLayout>
     </LinearLayout>
 </LinearLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -23,6 +24,7 @@ import com.example.carrotandstick.src.main.interfaces.MainActivityView;
 import com.example.carrotandstick.src.main.models.RequestGoal;
 
 public class MainFragment extends Fragment implements MainActivityView {
+
     MainActivity activity;
     View view;
     EditText mEtGoal;
@@ -44,6 +46,7 @@ public class MainFragment extends Fragment implements MainActivityView {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         view = inflater.inflate(R.layout.main_fragment, container, false);
         mEtGoal = view.findViewById(R.id.main_et_goal);
         mBtnGoal = view.findViewById(R.id.main_btn_goal);
