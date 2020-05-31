@@ -1,14 +1,10 @@
 package com.example.carrotandstick.src.calendar2;
 
-import com.example.carrotandstick.src.calendar.interfaces.CalendarActivityView;
-import com.example.carrotandstick.src.calendar.interfaces.CalendarRetrofitInterface;
 import com.example.carrotandstick.src.calendar2.interfaces.Calendar2ActivityView;
 import com.example.carrotandstick.src.calendar2.interfaces.Calendar2RetrofitInterface;
 import com.example.carrotandstick.src.calendar2.models.CheckResponse;
 import com.example.carrotandstick.src.calendar2.models.GoalNoResponse;
 import com.example.carrotandstick.src.calendar2.models.RequestCheck;
-import com.example.carrotandstick.src.register.interfaces.RegisterRetrofitInterface;
-import com.example.carrotandstick.src.register.models.RegisterResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,9 +51,9 @@ public class Calendar2Service {
         });
     }
 
-    public void deleteCheck(RequestCheck requestCheck) {
+    public void deleteCheck(int goalNo) {
         final Calendar2RetrofitInterface calendar2RetrofitInterface = getRetrofit().create(Calendar2RetrofitInterface.class);
-        calendar2RetrofitInterface.deleteGoal(requestCheck).enqueue(new Callback<CheckResponse>() {
+        calendar2RetrofitInterface.deleteGoal(goalNo).enqueue(new Callback<CheckResponse>() {
             @Override
             public void onResponse(Call<CheckResponse> call, Response<CheckResponse> response) {
                 final CheckResponse checkResponse = response.body();
@@ -67,6 +63,22 @@ public class Calendar2Service {
             @Override
             public void onFailure(Call<CheckResponse> call, Throwable t) {
                 calendar2ActivityView.validateDeleteFail(t.getMessage());
+            }
+        });
+    }
+
+    public void postCollection(RequestCheck requestCheck) {
+        final Calendar2RetrofitInterface calendar2RetrofitInterface = getRetrofit().create(Calendar2RetrofitInterface.class);
+        calendar2RetrofitInterface.postCollection(requestCheck).enqueue(new Callback<CheckResponse>() {
+            @Override
+            public void onResponse(Call<CheckResponse> call, Response<CheckResponse> response) {
+                final CheckResponse checkResponse = response.body();
+                calendar2ActivityView.validatePostCollectionSuccess(checkResponse.getIsSuccess(), checkResponse.getCode(), checkResponse.getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<CheckResponse> call, Throwable t) {
+                calendar2ActivityView.validatePostCollectionFail(t.getMessage());
             }
         });
     }

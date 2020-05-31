@@ -6,25 +6,44 @@
     android:layout_columnWeight="1"
     android:layout_gravity="center"
     android:layout_weight="1"
-    android:gravity="center"
     android:background="#ffffff"
+    android:gravity="center"
     android:orientation="vertical">
 
 
     <ImageView
+        android:id="@+id/prize_iv_ic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/prize_ic_1" />
 
-    <TextView
-        android:id="@+id/prize_tv_icname"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:fontFamily="@font/black"
-        android:text="시들시들 당근 x1"
-        android:textColor="@android:color/black" />
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/prize_tv_icname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/black"
+            android:text="시들시들 당근 "
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/prize_tv_iccnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/black"
+            android:text="x1"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
 
 </LinearLayout>

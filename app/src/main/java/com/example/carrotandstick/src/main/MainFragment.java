@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +23,19 @@ import com.example.carrotandstick.src.MainActivity;
 import com.example.carrotandstick.src.calendar.CalendarFragment;
 import com.example.carrotandstick.src.main.interfaces.MainActivityView;
 import com.example.carrotandstick.src.main.models.RequestGoal;
+import com.kakao.kakaolink.v2.KakaoLinkResponse;
+import com.kakao.kakaolink.v2.KakaoLinkService;
+import com.kakao.message.template.ButtonObject;
+import com.kakao.message.template.ContentObject;
+import com.kakao.message.template.FeedTemplate;
+import com.kakao.message.template.LinkObject;
+import com.kakao.message.template.SocialObject;
+import com.kakao.network.ErrorResult;
+import com.kakao.network.callback.ResponseCallback;
+import com.kakao.util.helper.log.Logger;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainFragment extends Fragment implements MainActivityView {
 

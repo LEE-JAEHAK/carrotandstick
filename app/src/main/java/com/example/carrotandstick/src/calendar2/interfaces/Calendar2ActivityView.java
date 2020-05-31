@@ -16,4 +16,8 @@ public interface Calendar2ActivityView {
     void validateDeleteSuccess(boolean isSuccess, int code, String message);
 
     void validateDeleteFail(String msg);
+
+    void validatePostCollectionSuccess(boolean isSuccess, int code, String message);
+
+    void validatePostCollectionFail(String msg);
 }

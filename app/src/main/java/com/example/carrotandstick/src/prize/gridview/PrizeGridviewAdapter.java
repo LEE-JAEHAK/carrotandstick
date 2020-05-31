@@ -1,22 +1,25 @@
-package com.example.carrotandstick.src.prize;
+package com.example.carrotandstick.src.prize.gridview;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.carrotandstick.R;
+import com.example.carrotandstick.src.prize.models.PrizeResponse;
 
 import java.util.ArrayList;
 
 public class PrizeGridviewAdapter extends BaseAdapter {
-    ArrayList<PrizeItem> itemArrayList;
+    ArrayList<PrizeResponse.Result> itemArrayList;
     LayoutInflater layoutInflater;
     Context context;
 
-    public PrizeGridviewAdapter(ArrayList<PrizeItem> itemArrayList, Context context) {
+    public PrizeGridviewAdapter(ArrayList<PrizeResponse.Result> itemArrayList, Context context) {
         this.itemArrayList = itemArrayList;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;
@@ -41,11 +44,17 @@ public class PrizeGridviewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = layoutInflater.inflate(R.layout.prizeitem_gridview, parent, false);
 
-        PrizeItem item = itemArrayList.get(position);
+        PrizeResponse.Result item = itemArrayList.get(position);
 
+        ImageView imageView = convertView.findViewById(R.id.prize_iv_ic);
         TextView textView = convertView.findViewById(R.id.prize_tv_icname);
+        TextView textView1 = convertView.findViewById(R.id.prize_tv_iccnt);
 
-        textView.setText(item.getPrizeName());
+        Glide.with(context).load(item.getImageUrl()).override(500,500).into(imageView);
+        imageView.setClipToOutline(true);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        textView.setText(item.getName());
+        textView1.setText("x"+item.getCnt());
 
         return convertView;
     }

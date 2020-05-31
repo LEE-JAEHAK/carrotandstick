@@ -62,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/bold"
-                        android:text="도시 농부"
+                        android:text=""
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -89,7 +89,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/medium"
-                            android:text="가입하기"
+                            android:text=""
                             android:textColor="#000000" />
 
                         <TextView
@@ -98,7 +98,7 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:fontFamily="@font/medium"
-                            android:text="로그인"
+                            android:text=""
                             android:textColor="#000000" />
                     </LinearLayout>
 
@@ -139,6 +139,14 @@
                             android:textColor="#000000"
                             android:textSize="13sp" />
                     </LinearLayout>
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recyclerview1"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="70dp"-->
+<!--                        android:scrollbars="horizontal"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginBottom="20dp"/>-->
 
                     <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
                         android:id="@+id/calendar_listview"
@@ -184,6 +192,14 @@
                             android:textColor="#000000"
                             android:textSize="13sp" />
                     </LinearLayout>
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recyclerview2"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="70dp"-->
+<!--                        android:scrollbars="horizontal"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginBottom="20dp"/>-->
 
                     <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
                         android:id="@+id/calendar_listview2"

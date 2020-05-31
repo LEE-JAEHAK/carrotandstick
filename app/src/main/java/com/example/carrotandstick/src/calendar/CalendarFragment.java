@@ -39,6 +39,8 @@ public class CalendarFragment extends Fragment implements CalendarActivityView {
         activity = null;
     }
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -70,5 +72,13 @@ public class CalendarFragment extends Fragment implements CalendarActivityView {
     @Override
     public void validateOngoingFail(String msg) {
         activity.showCustomToast(msg);
+    }
+
+    @Override
+    public void onResume() {
+        System.out.println("onresume");
+        CalendarService calendarService = new CalendarService(this);
+        calendarService.getGoalOngoing();
+        super.onResume();
     }
 }

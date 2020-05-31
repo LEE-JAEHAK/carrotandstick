@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.carrotandstick.R;
+import com.example.carrotandstick.StartActivity;
 import com.example.carrotandstick.src.calendar.models.GoalOngoingResponse;
 import com.example.carrotandstick.src.login.LoginActivity;
 import com.example.carrotandstick.src.MainActivity;
@@ -99,7 +100,7 @@ public class MypageFragment extends Fragment implements MypageActivityView {
                         editor.putString(X_ACCESS_TOKEN, "");
                         editor.commit();
 
-                        Intent intent = new Intent(activity, MainActivity.class);
+                        Intent intent = new Intent(activity, StartActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
