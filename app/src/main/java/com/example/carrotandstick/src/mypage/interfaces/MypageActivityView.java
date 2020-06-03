@@ -1,7 +1,7 @@
 package com.example.carrotandstick.src.mypage.interfaces;
 
 
-import com.example.carrotandstick.src.calendar.models.GoalOngoingResponse;
+import com.example.carrotandstick.src.mypage.models.GoalOngoingResponse;
 import com.example.carrotandstick.src.mypage.models.FinishedgoalResponse;
 import com.example.carrotandstick.src.mypage.models.UserInfoResponse;
 

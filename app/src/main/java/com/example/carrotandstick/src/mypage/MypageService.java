@@ -1,7 +1,6 @@
 package com.example.carrotandstick.src.mypage;
 
-import com.example.carrotandstick.src.calendar.interfaces.CalendarRetrofitInterface;
-import com.example.carrotandstick.src.calendar.models.GoalOngoingResponse;
+import com.example.carrotandstick.src.mypage.models.GoalOngoingResponse;
 import com.example.carrotandstick.src.mypage.interfaces.MypageActivityView;
 import com.example.carrotandstick.src.mypage.interfaces.MypageRetrofitInterface;
 import com.example.carrotandstick.src.mypage.models.FinishedgoalResponse;
@@ -41,8 +40,8 @@ public class MypageService {
     }
 
     public void getGoalOngoing() {
-        final CalendarRetrofitInterface calendarRetrofitInterface = getRetrofit().create(CalendarRetrofitInterface.class);
-        calendarRetrofitInterface.getGoalOngoing().enqueue(new Callback<GoalOngoingResponse>() {
+        final MypageRetrofitInterface mypageRetrofitInterface = getRetrofit().create(MypageRetrofitInterface.class);
+        mypageRetrofitInterface.getGoalOngoing().enqueue(new Callback<GoalOngoingResponse>() {
             @Override
             public void onResponse(Call<GoalOngoingResponse> call, Response<GoalOngoingResponse> response) {
                 final GoalOngoingResponse goalOngoingResponse = response.body();

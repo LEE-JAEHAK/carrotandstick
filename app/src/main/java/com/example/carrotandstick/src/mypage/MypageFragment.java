@@ -12,19 +12,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carrotandstick.R;
 import com.example.carrotandstick.StartActivity;
-import com.example.carrotandstick.src.calendar.models.GoalOngoingResponse;
+import com.example.carrotandstick.src.mypage.models.GoalOngoingResponse;
 import com.example.carrotandstick.src.login.LoginActivity;
 import com.example.carrotandstick.src.MainActivity;
 import com.example.carrotandstick.src.mypage.interfaces.MypageActivityView;
-import com.example.carrotandstick.src.mypage.listview.ListviewAdapter;
-import com.example.carrotandstick.src.mypage.listview.ListviewAdapter2;
 import com.example.carrotandstick.src.mypage.models.FinishedgoalResponse;
 import com.example.carrotandstick.src.mypage.models.UserInfoResponse;
+import com.example.carrotandstick.src.mypage.recyclerview.RecyclerviewAdapter1;
+import com.example.carrotandstick.src.mypage.recyclerview.RecyclerviewAdapter2;
 import com.example.carrotandstick.src.register.RegisterActivity;
-import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
 
 import java.util.ArrayList;
 
@@ -46,17 +47,13 @@ public class MypageFragment extends Fragment implements MypageActivityView {
 
     MainActivity activity;
     View view;
-    TextView mTvNickname;
-    TextView mTvLogin;
-    TextView mTvRegister;
+    TextView mTvNickname, mTvLogin, mTvRegister;
     CustomDialogLogout customDialogLogout;
-    ExpandableHeightListView listView, listView2;
-    ListviewAdapter listviewAdapter;
-    ListviewAdapter2 listviewAdapter2;
     ArrayList<GoalOngoingResponse.Result> arrayList = new ArrayList<>();
     ArrayList<FinishedgoalResponse.Result> arrayList2 = new ArrayList<>();
-
-
+    RecyclerView recyclerView1, recyclerView2;
+    RecyclerviewAdapter1 recyclerviewAdapter1;
+    RecyclerviewAdapter2 recyclerviewAdapter2;
 
     @Nullable
     @Override
@@ -120,14 +117,15 @@ public class MypageFragment extends Fragment implements MypageActivityView {
             mypageService.getGoalOngoing();
             mypageService.getGoalFinished();
 
-            listView = view.findViewById(R.id.calendar_listview);
-            listView2 = view.findViewById(R.id.calendar_listview2);
-            listviewAdapter = new ListviewAdapter(arrayList, activity);
-            listviewAdapter2 = new ListviewAdapter2(arrayList2, activity);
-            listView.setExpanded(true);
-            listView2.setExpanded(true);
-            listView.setAdapter(listviewAdapter);
-            listView2.setAdapter(listviewAdapter2);
+            recyclerView1 = view.findViewById(R.id.recyclerview1);
+            recyclerviewAdapter1 = new RecyclerviewAdapter1(arrayList,activity);
+            recyclerView1.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
+            recyclerView1.setAdapter(recyclerviewAdapter1);
+
+            recyclerView2 = view.findViewById(R.id.recyclerview2);
+            recyclerviewAdapter2 = new RecyclerviewAdapter2(arrayList2,activity);
+            recyclerView2.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
+            recyclerView2.setAdapter(recyclerviewAdapter2);
         }
 
         return view;
@@ -151,7 +149,7 @@ public class MypageFragment extends Fragment implements MypageActivityView {
         if (isSuccess) {
             arrayList.clear();
             arrayList.addAll(result);
-            listviewAdapter.notifyDataSetChanged();
+            recyclerviewAdapter1.notifyDataSetChanged();
         } else {
             activity.showCustomToast(message);
         }
@@ -167,7 +165,7 @@ public class MypageFragment extends Fragment implements MypageActivityView {
         if (isSuccess) {
             arrayList2.clear();
             arrayList2.addAll(result);
-            listviewAdapter2.notifyDataSetChanged();
+            recyclerviewAdapter2.notifyDataSetChanged();
         } else {
             activity.showCustomToast(message);
         }
