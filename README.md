@@ -21,6 +21,6 @@
 
 ## Download
 <p align="left"> 
-    click <a href="https://play.google.com/store/apps/details?id=com.carrot.carrotandstick">here</a> to add this extension!
+    click <a href="https://play.google.com/store/apps/details?id=com.carrot.carrotandstick">here</a> to download this from Google Play Store !
 </p>
 
